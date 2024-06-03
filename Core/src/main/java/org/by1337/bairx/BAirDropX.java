@@ -131,11 +131,11 @@ public final class BAirDropX extends JavaPlugin {
                     AdapterRegistry.registerAdapter(Requirement.class, new AdapterRequirement());
                     AdapterRegistry.registerAdapter(Observer.class, new AdapterObserver());
                 })
+                .enable("init commands", this::initCommand)
                 .enable("load addons", () -> {
                     addonLoader.loadAll();
                     addonLoader.enableAll();
                 })
-                .enable("init commands", this::initCommand)
                 .enable("cfg save", () -> {
                     ConfigUtil.trySave("listeners/default.yml");
                     ConfigUtil.trySave("config.yml");
